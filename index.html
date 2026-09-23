@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/estilos.css">
+
+    <title>TP N°1 </title>
+
+</head>
+<body>
+
+    <h1>Trabajo Práctico N°1 - Menú interactivo</h1>
+    <p>Haz clic en el ejercicio que deseas probar para iniciar la ventana emergente:</p>
+
+    <div class="contenedor-botones">
+        <button onclick="ejecutarEjercicio('01')">Ejercicio 1 – Control de Acceso y Permisos </button>
+        <button onclick="ejecutarEjercicio('02')">Ejercicio 2 – Cotizador de Pólizas de Seguro</button>
+        <button onclick="ejecutarEjercicio('03')">Ejercicio 3 – Liquidación de Sueldos</button>
+        <button onclick="ejecutarEjercicio('04')">Ejercicio 4 – Tarificador de Transporte</button>
+        <button onclick="ejecutarEjercicio('05')">Ejercicio 5 – Monotributo</button>
+        <button onclick="ejecutarEjercicio('06')">Ejercicio 6 – Scoring Crediticio</button>
+        <button onclick="ejecutarEjercicio('07')">Ejercicio 7 – Cajero Automático</button>
+        <button onclick="ejecutarEjercicio('08')">Ejercicio 8 – Motor de Descuentos</button>
+        <button onclick="ejecutarEjercicio('09')">Ejercicio 9 – Triaje para Urgencias Médicas</button>
+        <button onclick="ejecutarEjercicio('10')">Ejercicio 10 – Conversor Monetario</button>
+    </div>
+
+    <script>
+        function ejecutarEjercicio(numero) {
+            
+            const scriptAnterior = document.getElementById('script-activo');
+            if (scriptAnterior) {
+                scriptAnterior.remove();
+            }
+
+            const nuevoScript = document.createElement('script');
+            nuevoScript.id = 'script-activo';
+            nuevoScript.src = `js/ejercicio${numero}.js?v=${Date.now()}`;
+            document.body.appendChild(nuevoScript);
+        }
+    </script>
+</body>
+</html>
